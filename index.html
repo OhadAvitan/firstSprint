@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;900&display=swap" rel="stylesheet">
+    <title>MineSweeperOA</title>
+</head>
+
+
+
+<body onload="initGame()" oncontextmenu="print(event.button)">
+    <h1 class="nameGame">Mine Sweeper</h1>
+
+
+    <!-- <div class="difficulty">
+        <input onclick="initGame()" type="radio" id="4" name="difficulty" checked value="4">
+        <label for="4">easy</label><br>
+        <input onclick="initGame()" type="radio" id="8" name="difficulty" value="8">
+        <label for="8">medium</label><br>
+        <input onclick="initGame()" type="radio" id="12" name="difficulty" value="12">
+        <label for="12">hard</label>
+    </div> -->
+    <!-- <div class="topContainer"></div> -->
+    <table>
+        <tbody class="mineField"></tbody>
+    </table>
+
+    <div class="gameOver">Game Over</div>
+
+    <img src="images/mine1.png" alt="o"></img>
+    <img src="images/flag2.png" alt="1"></img>
+
+    <!-- <button onclick="cellClicked()"></button> -->
+
+    <script src="js/util.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

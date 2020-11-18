@@ -1,0 +1,67 @@
+/* inline block */
+
+body {
+    font-family: 'Merriweather', serif;
+    background: no-repeat linear-gradient(#3C3B3F, #60503c);
+    color: rgb(22, 9, 9);
+    /* background-size: cover; */
+    /* background-color: rgb(155, 230, 243); */
+}
+
+img {
+    width: 20px;
+    /* margin: 20px; */
+}
+
+
+/* .topContainer {
+    display: inline-block;
+    text-align: center;
+    border: yellow 2px solid;
+    margin-bottom: 25px;
+    width: 150px;
+} */
+
+table {
+    margin: auto;
+}
+
+td {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    width: 26px;
+    height: 26px;
+    background-color: rgb(156, 156, 163);
+    border: rgb(7, 7, 7) solid 1px;
+}
+
+.gameOver {
+    color: white;
+    text-align: center;
+    background-color: rgba(100, 109, 160, 0.85);
+    margin: auto;
+    height: 150px;
+    width: 250px;
+    display: none;
+}
+
+button {
+    width: 36px;
+    height: 36px;
+    border-radius: 0;
+    background-color: rgb(129, 157, 173);
+}
+
+.nameGame {
+    text-align: center;
+    font-size: 68pt;
+}
+
+
+/* .difficulty {
+    text-align: center;
+    margin: auto;
+    display: flex;
+}  */
