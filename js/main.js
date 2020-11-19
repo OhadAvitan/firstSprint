@@ -29,6 +29,11 @@ var colors = ['rgb(255, 235, 123)', 'rgb(255, 212, 71)', 'rgb(255, 169, 71)', 'r
 function initGame() {
     buildMineField();
     implementMinesAroundCount(gMineField);
+    // var x = 5;
+    // var y = 5;
+    // var elCell = document.querySelector('[x],[y]');
+    // console.log(elCell);
+    // elCell.isMine = true;
 }
 
 
@@ -39,8 +44,8 @@ function buildMineField() {
     renderMineField(gMineField);
     gMineField[0][2].isMine = true;
     gMineField[1][1].isMine = true;
-    gMineField[2][2].minesAroundCount = 2;
-    // gMineField[0][0].minesAroundCount = 1;
+    gMineField[5][5].isMine = true;
+    // gMineField[2][2].minesAroundCount = 2;
     // gMineField[3][3].minesAroundCount = 3;
 
 }
@@ -64,6 +69,26 @@ function createMineField(ROWS, COLS) { //create mat with object
 
 
 // data-i="${i}" data-j="${j}"
+
+
+// function renderMineField(gMineField) {
+//     var strHtml = '';
+//     for (var i = 0; i < gMineField.length; i++) {
+//         strHtml += '<tr>'
+//         for (var j = 0; j < gMineField[0].length; j++) {
+//             strHtml += `<td onclick="cellClicked(this,${i},${j})" >`
+//             if (gMineField[i][j].isMine && gMineField[i][j].isShown)
+//                 strHtml += MINE_IMG
+//         }
+//         strHtml += '</td></tr>'
+//     }
+
+//     var elMineField = document.querySelector('.mineField')
+//     elMineField.innerHTML = strHtml
+// }
+
+
+
 
 function renderMineField(gMineField) {
     var strHtml = '';
@@ -111,10 +136,12 @@ function seriousRenderBoard(board) {
 
 
 function cellClicked(clickedCell, i, j) {
-    // console.log(clickedCell, i, j);
+    console.log(clickedCell, i, j);
     console.log(gMineField[i][j].minesAroundCount);
     // console.log(clickedCell.className);
-    if (gMineField[i][j].isMarked) return;
+    if (gMineField[i][j].isMarked || gMineField[i][j].isShown) {
+        return;
+    }
     if (gMineField[i][j].isMine) {
         // revealAllMines();
         clickedCell.innerHTML = MINE_IMG;
@@ -125,13 +152,19 @@ function cellClicked(clickedCell, i, j) {
     }
     if (gMineField[i][j].minesAroundCount === 0) { //empty cell
         clickedCell.style.backgroundColor = 'rgb(87, 87, 95)';
+        clickedCell.isShown = true;
+        renderMineField(gMineField)
+        console.log('1');
         console.log('empty');
         return;
     }
     if (gMineField[i][j].minesAroundCount > 0) {
         clickedCell.style.backgroundColor = colors[gMineField[i][j].minesAroundCount - 1];
+        clickedCell.isShown = true;
         clickedCell.innerText = gMineField[i][j].minesAroundCount;
+        console.log('2');
         console.log('empty');
+        renderMineField(gMineField)
         return;
     }
 
@@ -149,7 +182,11 @@ function revealNeighbors(i, j) {
 
         }
     }
-
+    var x = 5;
+    var y = 5;
+    var elCell = document.querySelector(`${x},${y}`);
+    console.log(elCell);
+    // elCell.dataset.i
 }
 
 
