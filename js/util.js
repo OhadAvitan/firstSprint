@@ -10,24 +10,29 @@ function createMat(ROWS, COLS) {
     return mat
 }
 
-
-
-function minesAroundCountFunction(mat, pos) { //mines -> not array
-    var count = 0
-    for (var i = pos.i - 1; i <= pos.i + 1; i++) {
-        if (i < 0 || i > mat.length - 1) continue
-        for (var j = pos.j - 1; j <= pos.j + 1; j++) {
-            if (j < 0 || j > mat[0].length - 1) continue
-            if (i === pos.i && j === pos.j) continue
-            if (mat[i][j].isMine) count++
-        }
-    }
-    return count
-
-}
-
-
 function getRandomInteger(min, max) {
     var numRange = max - min + 1; // range of allowed numbers
     return Math.floor(Math.random() * numRange) + min; // shift by min value
+}
+
+function timeFormatter(timeInMilliseconds) {
+    var time = new Date(timeInMilliseconds);
+    var minutes = time.getMinutes().toString();
+    var seconds = time.getSeconds().toString();
+    var milliseconds = time.getMilliseconds().toString();
+
+    if (minutes.length < 2) {
+        minutes = '0' + minutes;
+    }
+
+    if (seconds.length < 2) {
+        seconds = '0' + seconds;
+    }
+
+    while (milliseconds.length < 3) {
+        milliseconds = '0' + milliseconds;
+    }
+
+    return minutes + ' : ' + seconds;
+
 }

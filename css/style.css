@@ -1,5 +1,3 @@
-/* inline block */
-
 body {
     font-family: 'Montserrat', sans-serif;
     background: linear-gradient( #725532, #624a2c, #292117);
@@ -22,20 +20,6 @@ img {
     width: 70px;
 }
 
-
-/* .topContainer {
-    display: inline-block;
-    text-align: center;
-    border: yellow 2px solid;
-    margin-bottom: 25px;
-    width: 150px;
-} */
-
-table {
-    background-color: #221f1d;
-    margin: auto;
-}
-
 td {
     color: rgb(0, 0, 0);
     font-size: 18px;
@@ -47,26 +31,51 @@ td {
     border: rgb(7, 7, 7) solid 1px;
 }
 
-.gameOver {
-    color: white;
-    text-align: center;
-    background-color: rgba(100, 109, 160, 0.85);
+.topContainer {
     margin: auto;
-    height: 150px;
-    width: 250px;
-    display: none;
+    padding: 12px;
+    text-align: center;
+    border: rgb(177, 100, 0) 4px solid;
+    background-color: rgb(216, 133, 0);
+    border-radius: 6px;
+    margin-bottom: 25px;
+    width: 650px;
+}
+
+table {
+    background-color: #221f1d;
+    margin: auto;
 }
 
 button {
-    width: 36px;
-    height: 36px;
-    border-radius: 0;
-    background-color: rgb(129, 157, 173);
+    color: rgb(240, 208, 183);
+    font-weight: 700;
+    width: 120px;
+    height: 50px;
+    border-radius: 6px;
+    background-color: rgb(167, 139, 120);
+    margin-left: 50px;
+    margin-right: 130px;
+}
+
+h2 {
+    display: inline;
+}
+
+.gameOver,
+.gameWin {
+    display: none;
+    color: white;
+    text-align: center;
+    background-color: rgba(71, 55, 36, 0.85);
+    margin: auto;
+    height: 100px;
+    width: 250px;
 }
 
 .nameGame {
     text-align: center;
-    font-size: 68pt;
+    font-size: 66pt;
 }
 
 

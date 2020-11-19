@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-    <title>MineSweeperOA</title>
+    <title>Mine Sweeper OA</title>
 </head>
 
 
@@ -25,12 +25,33 @@
         <input onclick="initGame()" type="radio" id="12" name="difficulty" value="12">
         <label for="12">Advanced</label>
     </div> -->
-    <!-- <div class="topContainer"></div> -->
+    <div class="topContainer">
+        <h2>Mines left:</h2>
+        <h2 class="mineLeft">12</h2>
+        <button onclick="restartGame()">Restart Game</button>
+        <h2 class="timer">00:00</h2>
+    </div>
+
     <table>
         <tbody class="mineField"></tbody>
     </table>
 
-    <div class="gameOver">Game Over</div>
+    <div class="gameOver">
+        <h1>Game Over</h1>
+        <div class="roundTime">
+            <h2>your time: </h2>
+            <h2 class="time"></h2>
+        </div>
+    </div>
+
+    <div class="gameWin">
+        <h1>YOU WIN!</h1>
+        <div class="roundTime">
+            <h2>your time: </h2>
+            <h2 class="time"></h2>
+        </div>
+    </div>
+
     <div class="bottomContainer"></div>
 
     <!-- <img src="images/mine1.png" alt="o"></img>
