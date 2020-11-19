@@ -25,3 +25,9 @@ function minesAroundCountFunction(mat, pos) { //mines -> not array
     return count
 
 }
+
+
+function getRandomInteger(min, max) {
+    var numRange = max - min + 1; // range of allowed numbers
+    return Math.floor(Math.random() * numRange) + min; // shift by min value
+}
