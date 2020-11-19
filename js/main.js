@@ -29,7 +29,8 @@ var colors = ['rgb(87, 87, 95)', 'rgb(255, 212, 71)', 'rgb(255, 169, 71)', 'rgb(
 
 function initGame() {
     buildMineField();
-    implementMinesAroundCount(gMineField)
+    placeMines(gMineField);
+    implementMinesAroundCount(gMineField);
 }
 
 
@@ -38,9 +39,9 @@ function buildMineField() {
     gMineField = createMineField(gLevel[1].SIZE, gLevel[1].SIZE);
     console.log(gMineField);
     renderMineField(gMineField);
-    gMineField[0][2].isMine = true;
-    gMineField[1][1].isMine = true;
-    gMineField[5][5].isMine = true;
+    // gMineField[0][2].isMine = true;
+    // gMineField[1][1].isMine = true;
+    // gMineField[5][5].isMine = true;
     // gMineField[2][2].minesAroundCount = 2;
     // gMineField[3][3].minesAroundCount = 3;
 
@@ -63,21 +64,32 @@ function createMineField(ROWS, COLS) { //create mat with object
     return mat
 }
 
+
 function placeMines(mineField) {
-    for (var i = 0; i < gLevel[1].MINES; i++) {
+    var mineCount = 0;
+    while (mineCount !== gLevel[1].MINES) { //Build array with randoms positions for mines
         var cellI = getRandomInteger(0, gLevel[1].SIZE - 1)
         var cellJ = getRandomInteger(0, gLevel[1].SIZE - 1)
         var minePos = { i: cellI, j: cellJ }
-        for (var j = 0; j < gMinesPlaces.length; j++) {
-            if (gMinesPlaces[j] === minePos) {
-                i--;
-            } else {
-                gMinesPlaces
+        var isMineAlready = false;
+        for (var i = 0; i < gMinesPlaces.length; i++) {
+            if (gMinesPlaces[i].i === minePos.i && gMinesPlaces[i].j === minePos.j) {
+                isMineAlready = true;
             }
         }
-
+        if (!isMineAlready) {
+            gMinesPlaces.push(minePos)
+            mineCount++;
+        }
     }
-
+    for (var i = 0; i < gMinesPlaces.length; i++) { //Implement the mines in the Model 
+        var currPosI = gMinesPlaces[i].i;
+        var currPosJ = gMinesPlaces[i].j;
+        mineField[currPosI][currPosJ].isMine = true;
+        // var elCurrCell = document.querySelector(`[data-i="${currPosI}"][data-j="${currPosJ}"]`);
+        // elCurrCell =
+    }
+    return mineField;
 }
 
 
@@ -242,6 +254,6 @@ function implementMinesAroundCount(mineField) {
 }
 
 
-function rightClick(elbtn, i, j) {
-    oncontextmenu = "return false;"
-}
+// function rightClick(elbtn, i, j) {
+//     oncontextmenu = "return false;"
+// }
