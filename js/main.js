@@ -17,7 +17,7 @@ var gMineFieldCells = gLevelSizeChecked * gLevelSizeChecked;
 var gShownCount = 0;
 
 const MINE_IMG = '<img src="images/mine2.png" alt="o">'
-const FLAG_IMG = '<img src="images/flag2.png" alt="1">'
+const FLAG_IMG = '<img src="images/flag1.png" alt="1">'
 
 var gDifficult;
 
@@ -65,7 +65,6 @@ function createMineField(ROWS, COLS) { //create mat with object
     return mat
 }
 
-
 function placeMines(mineField) {
     var mineCount = 0;
     while (mineCount !== gLevelMineChecked) { //Build array with randoms positions for mines
@@ -111,8 +110,6 @@ function placeMines(mineField) {
 // }
 
 
-
-
 function renderMineField(gMineField) {
     var strHtml = '';
     for (var i = 0; i < gMineField.length; i++) {
@@ -127,9 +124,19 @@ function renderMineField(gMineField) {
     elMineField.innerHTML = strHtml
 }
 
-
-// oncontextmenu="rightClick(event , this)"
-
+// function flag() {
+//     var sdds = document.addEventListener("contextmenu");
+//     sdds.preventDefault();
+// }
+function rightClick(currCell, i, j) {
+    // var elCell = document.querySelector(`[data-i="${i}"][data-j="${j}"]`)
+    if (gMineField[i][j].isMarked) {
+        currCell.innerHTML = '';
+    } else {
+        currCell.innerHTML = FLAG_IMG;
+    }
+    gMineField[i][j].isMarked = !gMineField[i][j].isMarked
+}
 
 function cellClicked(clickedCell, i, j) {
 
@@ -203,7 +210,19 @@ function revealNeighbors(cellI, cellJ) {
     }
 }
 
-
+function getMineFieldSize() {
+    var elInputs = document.querySelectorAll('input');
+    for (var i = 0; i < elInputs.length; i++) {
+        if (elInputs[i].checked) {
+            var userValue = elInputs[i].value;
+        }
+    }
+    gLevelSizeChecked = gLevel[userValue].SIZE;
+    gLevelMineChecked = gLevel[userValue].MINES;
+    var elOverAllMines = document.querySelector('.mineLeft');
+    elOverAllMines.innerText = gLevel[userValue].MINES;
+    restartGame();
+}
 
 // function rightClick(event, cell) {
 //     console.log(cell);

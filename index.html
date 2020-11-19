@@ -12,29 +12,26 @@
 
 
 <!-- oncontextmenu="rightClick(event)" -->
+<!-- oncontextmenu="flag()" -->
 
 <body onload="initGame()">
     <h1 class="nameGame">Mine <img class="mineImg" src="images/mine2.png" alt="o"> Sweeper</h1>
 
+    <div class="difficulty">
+        <input onclick="getMineFieldSize()" type="radio" id="0" name="difficulty" checked value="0">
+        <label for="0">Beginner</label>
+        <input onclick="getMineFieldSize()" type="radio" id="1" name="difficulty" value="1">
+        <label for="1">Intermediate</label>
+        <input onclick="getMineFieldSize()" type="radio" id="2" name="difficulty" value="2">
+        <label for="2">Advanced</label>
+    </div>
 
-    <!-- <div class="difficulty">
-        <input onclick="initGame()" type="radio" id="4" name="difficulty" checked value="4">
-        <label for="4">Beginner</label><br>
-        <input onclick="initGame()" type="radio" id="8" name="difficulty" value="8">
-        <label for="8">Intermediate</label><br>
-        <input onclick="initGame()" type="radio" id="12" name="difficulty" value="12">
-        <label for="12">Advanced</label>
-    </div> -->
     <div class="topContainer">
-        <h2>Mines left:</h2>
-        <h2 class="mineLeft">12</h2>
+        <h2>Overall Mines:</h2>
+        <h2 class="mineLeft">2</h2>
         <button onclick="restartGame()">Restart Game</button>
         <h2 class="timer">00:00</h2>
     </div>
-
-    <table>
-        <tbody class="mineField"></tbody>
-    </table>
 
     <div class="gameOver">
         <h1>Game Over</h1>
@@ -51,6 +48,12 @@
             <h2 class="time"></h2>
         </div>
     </div>
+
+    <table>
+        <tbody class="mineField"></tbody>
+    </table>
+
+
 
     <div class="bottomContainer"></div>
 

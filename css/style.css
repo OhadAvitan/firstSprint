@@ -67,15 +67,27 @@ h2 {
     display: none;
     color: white;
     text-align: center;
-    background-color: rgba(71, 55, 36, 0.85);
+    background-color: rgba(136, 108, 74, 0.85);
     margin: auto;
     height: 100px;
     width: 250px;
+    margin-bottom: 20px;
 }
 
 .nameGame {
     text-align: center;
     font-size: 66pt;
+}
+
+.difficulty {
+    /* text-align: center; */
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+    padding-left: 40%;
+    /* align-content: center; */
+    color: #ffd59e;
+    margin: 20px;
 }
 
 
